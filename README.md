@@ -24,8 +24,8 @@ where [options] are:
   -x, --x-scale=<f>         multiple X size by this number (default: 1.0)
   -y, --y-scale=<f>         multiple Y size by this number (default: 1.0)
   -s, --scale=<f>           multiple X and Y size by this number (default: 1.0)
-  -o, --x-offset=<i>        offset X coordinates by this many pixels, positive or negative (default: 0)
-  -f, --y-offset=<i>        offset y coordinates by this many pixels, positive or negative (default: 0)
+  -o, --x-offset=<i>        offset X coordinates by this many pixels, positive or negative (default: 1)
+  -f, --y-offset=<i>        offset y coordinates by this many pixels, positive or negative (default: 1)
   -d, --delay=<f>           Delay between redrawing (seconds) (default: 1.0)
   -e, --help                Show this message
 ```

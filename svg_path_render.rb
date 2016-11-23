@@ -253,8 +253,8 @@ EOS
   opt :x_scale, "multiple X size by this number", type: :float, default: 1.0
   opt :y_scale, "multiple Y size by this number", type: :float, default: 1.0
   opt :scale, "multiple X and Y size by this number", type: :float, default: 1.0
-  opt :x_offset, "offset X coordinates by this many pixels, positive or negative", default: 0
-  opt :y_offset, "offset y coordinates by this many pixels, positive or negative", default: 0
+  opt :x_offset, "offset X coordinates by this many pixels, positive or negative", default: 1
+  opt :y_offset, "offset y coordinates by this many pixels, positive or negative", default: 1
   opt :delay, "Delay between redrawing (seconds)", type: :float, default: 1.0
 end
 
