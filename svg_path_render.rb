@@ -262,16 +262,20 @@ filename = ARGV[0]
 Trollop::die "Must pass filename" unless filename.to_s.length > 0
 Trollop::die "File #{filename.inspect} not found" unless File.exist?(filename)
 
+## begin ugly code to extract just the vector path data from the svg file
 contents = File.open(filename).read
-contents.gsub!(/\r/, '')
-contents.gsub!(/\n/, '')
-contents.gsub!(/\t/, '')
-contents.gsub!(/\<path/, "\n<path")
+# remove all newlines and tabs, then add newlines before each <path> element
+contents.gsub!(/\r/, '').gsub!(/\n/, '').gsub!(/\t/, '').gsub!(/\<path/, "\n<path")
+
+# Split the contents string in to an array on \n and select only those array
+# elements that are only lines that begin with an SVG path declaration.
+# Then, extract just the vector paths and put them in `paths_data`.
 paths_data = contents.split("\n").select{|e| e =~ /^\<path/}.map{|content|
   if matches = content.match(/\<path.*\s+d=\"(.+)\"/)
     matches[1]
   end
 }.compact
+## end ugly
 
 Trollop::die "Could not find any vector paths in #{filename.inspect}." if paths_data.size == 0
 
